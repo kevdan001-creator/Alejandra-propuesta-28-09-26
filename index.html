@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Una pregunta para ti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-fondo: #fbedeb;
+        --color-tinta: #3b2426;
+        --color-vino: #7a2e38;
+        --color-vino-oscuro: #5f232b;
+        --color-oro-rosa: #c97b63;
+        --color-corazon-1: #e8646f;
+        --color-corazon-2: #c97b63;
+        --color-corazon-3: #7a2e38;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(
+          ellipse at top,
+          #fdf4f1 0%,
+          var(--color-fondo) 55%,
+          #f3dcd6 100%
+        );
+        font-family: "Lora", serif;
+        color: var(--color-tinta);
+        overflow: hidden;
+        position: relative;
+        padding: 24px;
+      }
+
+      .carta {
+        position: relative;
+        z-index: 2;
+        background: #fffdfb;
+        border-radius: 12px;
+        padding: 48px 36px;
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 30px 60px -20px rgba(122, 46, 56, 0.25);
+        border: 1px solid #efd9d2;
+      }
+
+      .adorno {
+        font-size: 28px;
+        color: var(--color-oro-rosa);
+        margin-bottom: 8px;
+        letter-spacing: 6px;
+      }
+
+      h1 {
+        font-family: "Parisienne", cursive;
+        font-weight: 400;
+        font-size: clamp(2.4rem, 6vw, 3.4rem);
+        color: var(--color-vino);
+        margin: 0 0 12px;
+        line-height: 1.15;
+      }
+
+      p.subtexto {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #5b4245;
+        margin: 0 0 36px;
+        max-width: 34ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .opciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        justify-content: center;
+        position: relative;
+        min-height: 56px;
+      }
+
+      button {
+        font-family: "Lora", serif;
+        font-size: 1rem;
+        padding: 14px 30px;
+        border-radius: 999px;
+        cursor: pointer;
+        border: none;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          background 0.2s ease;
+      }
+
+      #btn-si {
+        background: var(--color-vino);
+        color: #fff;
+        box-shadow: 0 10px 24px -8px rgba(122, 46, 56, 0.55);
+      }
+      #btn-si:hover {
+        background: var(--color-vino-oscuro);
+        transform: translateY(-2px);
+      }
+      #btn-si:disabled {
+        opacity: 0.85;
+        cursor: default;
+        transform: none;
+      }
+
+      #btn-no {
+        background: transparent;
+        border: 1.5px solid #d9bfb8;
+        color: #8a6b6b;
+      }
+
+      #btn-no.escapando {
+        position: fixed;
+        z-index: 5;
+      }
+
+      .corazon {
+        position: fixed;
+        top: -40px;
+        pointer-events: none;
+        z-index: 4;
+        animation-name: caer;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes caer {
+        to {
+          transform: translateY(110vh) rotate(45deg);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .carta {
+          padding: 36px 20px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .corazon {
+          animation: none;
+          display: none;
+        }
+        button {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carta">
+      <div class="adorno">♥</div>
+      <h1>Alejandra, ¿Quieres ser mi novia?</h1>
+      <p class="subtexto">
+        Hemos vivido tanto, y realmente quiero ser el hombre que te haga feliz. ¿Quieres ser mi novia y hacer cada día de nuestras vidas especial?
+      </p>
+      <div class="opciones">
+        <button id="btn-si">Sí, quiero</button>
+        <button id="btn-no">No</button>
+      </div>
+    </div>
+
+    <script>
+      const CONFIG = {
+        paginaDestino: "confirmacion.html",
+        esperaAntesDeIr: 2200,
+        cantidadCorazones: 40,
+      };
+
+      const btnSi = document.getElementById("btn-si");
+      const btnNo = document.getElementById("btn-no");
+
+      function moverBotonNo() {
+        btnNo.classList.add("escapando");
+        const margen = 70;
+        const maxX = Math.max(window.innerWidth - margen * 2, 50);
+        const maxY = Math.max(window.innerHeight - margen * 2, 50);
+        const x = margen + Math.random() * maxX;
+        const y = margen + Math.random() * maxY;
+        btnNo.style.left = x + "px";
+        btnNo.style.top = y + "px";
+      }
+
+      btnNo.addEventListener("mouseenter", moverBotonNo);
+      btnNo.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          moverBotonNo();
+        },
+        { passive: false },
+      );
+      btnNo.addEventListener("click", (e) => {
+        e.preventDefault();
+        moverBotonNo();
+      });
+
+      function lluviaDeCorazones(cantidad) {
+        const colores = [
+          "var(--color-corazon-1)",
+          "var(--color-corazon-2)",
+          "var(--color-corazon-3)",
+        ];
+        for (let i = 0; i < cantidad; i++) {
+          setTimeout(() => {
+            const corazon = document.createElement("div");
+            corazon.className = "corazon";
+            corazon.textContent = "♥";
+            corazon.style.left = Math.random() * 100 + "vw";
+            corazon.style.fontSize = 14 + Math.random() * 22 + "px";
+            corazon.style.color =
+              colores[Math.floor(Math.random() * colores.length)];
+            const duracion = 2.2 + Math.random() * 1.6;
+            corazon.style.animationDuration = duracion + "s";
+            document.body.appendChild(corazon);
+            setTimeout(() => corazon.remove(), duracion * 1000 + 200);
+          }, i * 40);
+        }
+      }
+
+      btnSi.addEventListener("click", () => {
+        btnSi.disabled = true;
+        lluviaDeCorazones(CONFIG.cantidadCorazones);
+        setTimeout(() => {
+          window.location.href = CONFIG.paginaDestino;
+        }, CONFIG.esperaAntesDeIr);
+      });
+    </script>
+  </body>
+</html>

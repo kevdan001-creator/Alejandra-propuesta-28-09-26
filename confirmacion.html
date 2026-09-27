@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia de Amor 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-fondo: #FBEDEB;
+            --color-tinta: #3B2426;
+            --color-vino: #7A2E38;
+            --color-oro-rosa: #C97B63;
+            --color-corazon-1: #E8646F;
+            --color-corazon-2: #C97B63;
+            --color-corazon-3: #7A2E38;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        body {
+            background: radial-gradient(ellipse at top, #FDF4F1 0%, var(--color-fondo) 55%, #F3DCD6 100%);
+            font-family: 'Lora', serif;
+            color: var(--color-tinta);
+            position: relative;
+            overflow-x: hidden;
+            padding: clamp(16px, 4vw, 40px) clamp(12px, 3vw, 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contenedor {
+            position: relative;
+            z-index: 2;
+            background: #FFFDFB;
+            border-radius: 16px;
+            padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 36px);
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 30px 60px -20px rgba(122, 46, 56, .25);
+            border: 1px solid #EFD9D2;
+            margin: auto;
+        }
+
+        .adorno {
+            font-size: clamp(24px, 5vw, 32px);
+            color: var(--color-oro-rosa);
+            margin-bottom: 12px;
+            letter-spacing: clamp(4px, 2vw, 8px);
+        }
+
+        h1 {
+            font-family: 'Parisienne', cursive;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 7vw, 4.2rem);
+            color: var(--color-vino);
+            margin: 0 0 16px;
+            line-height: 1.15;
+            word-break: break-word;
+        }
+
+        p.subtitulo {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            line-height: 1.6;
+            color: #6b4c50;
+            max-width: 50ch;
+            margin: 0 auto clamp(24px, 4vw, 40px);
+            font-style: italic;
+        }
+
+        /* Galería de fotos completamente responsive */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+            gap: clamp(14px, 3vw, 24px);
+            margin-bottom: clamp(24px, 4vw, 40px);
+        }
+
+        .foto-card {
+            background: #fff;
+            padding: 10px 10px 16px 10px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px -5px rgba(122, 46, 56, 0.12);
+            border: 1px solid #F3DCD6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        @media (hover: hover) {
+            .foto-card:hover {
+                transform: translateY(-6px) rotate(0.5deg);
+                box-shadow: 0 20px 35px -8px rgba(122, 46, 56, 0.22);
+            }
+        }
+
+        .foto-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            object-position: center center;
+            border-radius: 4px;
+            display: block;
+        }
+
+        /* Ajuste específico para encuadrar la última foto más arriba */
+        .foto-card.foto-ultima img,
+        .foto-card:last-child img {
+            object-position: center top; /* Muestra la parte superior de la imagen */
+        }
+
+        .foto-card .corazon-foto {
+            margin-top: 10px;
+            color: var(--color-corazon-1);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            margin-top: 16px;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: var(--color-oro-rosa);
+            font-style: italic;
+        }
+
+        .corazon-ambiente {
+            position: fixed;
+            bottom: -40px;
+            opacity: .55;
+            animation-name: flotar;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes flotar {
+            to {
+                transform: translateY(-110vh) translateX(var(--deriva, 0)) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .galeria {
+                grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+                gap: 12px;
+            }
+            .foto-card {
+                padding: 8px 8px 12px 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .corazon-ambiente { display: none; }
+            .foto-card { transition: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <div class="adorno">♥ ♥ ♥</div>
+        <h1>Un nuevo inicio para nuestra Historia de Amor</h1>
+        <p class="subtitulo">Cada momento a tu lado es mi lugar favorito en el mundo. Gracias por llenar mi vida de todo lo que siempre he deseado.</p>
+
+        <div class="galeria">
+            <div class="foto-card">
+                <img src="images/foto1.jpg" alt="Foto especial 1">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/foto2.jpg" alt="Foto especial 2">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/foto3.jpg" alt="Foto especial 3">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/foto4.jpg" alt="Foto especial 4">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/foto5.jpg" alt="Foto especial 5">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/foto6.jpg" alt="Foto especial 6">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/foto7.jpg" alt="Foto especial 7">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card">
+                <img src="images/foto8.jpg" alt="Foto especial 8">
+                <div class="corazon-foto">♥</div>
+            </div>
+            <div class="foto-card foto-ultima">
+                <img src="images/foto9.jpg" alt="Foto especial 9">
+                <div class="corazon-foto">♥</div>
+            </div>
+        </div>
+
+        <footer>Hasta el fin del mundo iré a buscarte, Alejandra💕</footer>
+    </div>
+
+    <script>
+        const coloresCorazon = ['var(--color-corazon-1)', 'var(--color-corazon-2)', 'var(--color-corazon-3)'];
+
+        function crearCorazonAmbiente() {
+            const c = document.createElement('div');
+            c.className = 'corazon-ambiente';
+            c.textContent = '♥';
+            c.style.left = Math.random() * 100 + 'vw';
+            c.style.fontSize = (12 + Math.random() * 20) + 'px';
+            c.style.color = coloresCorazon[Math.floor(Math.random() * coloresCorazon.length)];
+            c.style.setProperty('--deriva', (Math.random() * 80 - 40) + 'px');
+            const duracion = 6 + Math.random() * 5;
+            c.style.animationDuration = duracion + 's';
+            document.body.appendChild(c);
+            setTimeout(() => c.remove(), duracion * 1000 + 200);
+        }
+
+        setInterval(crearCorazonAmbiente, 600);
+        crearCorazonAmbiente();
+    </script>
+</body>
+</html>
