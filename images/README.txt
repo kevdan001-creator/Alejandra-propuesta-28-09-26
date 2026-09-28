@@ -1,0 +1,1 @@
+Coloca aquí tus fotos nombradas como foto1.jpg, foto2.jpg, etc. La foto de portada ya está guardada como portada.jpg

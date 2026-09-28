@@ -1,0 +1,26 @@
+Estructura y Flujo de la Web de Propuesta:
+
+1. index.html (Página de bienvenida de las flores)
+   - Es la página a la que llegará con el link/QR de la tarjeta de las flores.
+   - Muestra la foto de la portada (images/portada.jpg), la dedicatoria bonita sobre las flores y un botón "Tengo algo más que decirte 💕".
+
+2. pregunta.html (Página de la pregunta)
+   - Contiene la pregunta "¿Quieres ser mi novia?".
+   - El botón "No" esquiva dinámicamente el puntero/dedo.
+   - Al pulsar "Sí, quiero", hay una lluvia de corazones y redirige a confirmacion.html.
+
+3. confirmacion.html (Página final / Galería)
+   - Galería de recuerdos romántica estilo Polaroid con las fotos guardadas en la carpeta images/.
+
+Organización de archivos e imágenes:
+- Los archivos HTML y esta carpeta se deben subir juntos a tu servidor o plataforma de hosting (GitHub Pages, Netlify, Vercel, etc.).
+- La imagen que me enviaste está guardada como `images/portada.jpg`.
+- Puedes guardar tus otras fotos en la carpeta `images/` con los nombres:
+  - foto1.jpg
+  - foto2.jpg
+  - foto3.jpg
+  - foto4.jpg
+  - foto5.jpg
+  - foto6.jpg
+  - foto7.jpg
+  - foto8.jpg

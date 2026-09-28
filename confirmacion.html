@@ -78,7 +78,6 @@
             font-style: italic;
         }
 
-        /* Galería de fotos completamente responsive */
         .galeria {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
@@ -112,10 +111,9 @@
             display: block;
         }
 
-        /* Ajuste específico para encuadrar la última foto más arriba */
         .foto-card.foto-ultima img,
         .foto-card:last-child img {
-            object-position: center top; /* Muestra la parte superior de la imagen */
+            object-position: center top;
         }
 
         .foto-card .corazon-foto {
@@ -169,10 +167,14 @@
 
     <div class="contenedor">
         <div class="adorno">♥ ♥ ♥</div>
-        <h1>Un nuevo inicio para nuestra Historia de Amor</h1>
-        <p class="subtitulo">Cada momento a tu lado es mi lugar favorito en el mundo. Gracias por llenar mi vida de todo lo que siempre he deseado.</p>
+        <h1>Nuestra Historia de Amor</h1>
+        <p class="subtitulo">Cada momento a tu lado es mi lugar favorito en el mundo. Gracias por llenar mi vida de risas, complicidad y amor sincero.</p>
 
         <div class="galeria">
+            <div class="foto-card">
+                <img src="images/portada.jpg" alt="Foto especial portada">
+                <div class="corazon-foto">♥</div>
+            </div>
             <div class="foto-card">
                 <img src="images/foto1.jpg" alt="Foto especial 1">
                 <div class="corazon-foto">♥</div>
@@ -201,17 +203,13 @@
                 <img src="images/foto7.jpg" alt="Foto especial 7">
                 <div class="corazon-foto">♥</div>
             </div>
-            <div class="foto-card">
-                <img src="images/foto8.jpg" alt="Foto especial 8">
-                <div class="corazon-foto">♥</div>
-            </div>
             <div class="foto-card foto-ultima">
-                <img src="images/foto9.jpg" alt="Foto especial 9">
+                <img src="images/foto8.jpg" alt="Foto especial 8">
                 <div class="corazon-foto">♥</div>
             </div>
         </div>
 
-        <footer>Hasta el fin del mundo iré a buscarte, Alejandra💕</footer>
+        <footer>Siempre tú y yo, por encargo del corazón 💕</footer>
     </div>
 
     <script>
